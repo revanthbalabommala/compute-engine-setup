@@ -1,0 +1,65 @@
+
+1. Go To Compute Engine -> Create Instance with following options
+
+instance name, region, zone, machine configuration, machine type, available policies, enable display device (choose defaults)
+
+For the Identity & API Access Section,
+
+Allow default access, Firewall -> Select Allow HTTP Traffic, Compute Engine is created
+
+2. What is Service Account:
+
+To Access any Resource in GCP we need to have account that can be either service account or user account.
+
+User Account is different from Service Account, user account can only be used to access or create resources in gcp 
+
+In case of Service Account, if you want to have communication between two gcp resources like gcp compute engine and gcp container registry, 
+we need to have service account created
+
+Service Account will be identified with email address and key Firewall
+
+3. Create Service Account: Goto IAM & ADMIN -> create service account, next add role to the service account
+
+What is role in service account: roles are access/granted to access gcp resources
+
+Example: 
+
+4. Login Into Compute Engine by using gcloud command
+
+Docker has to be installed in compute engine
+
+Install Docker on your new Google Compute Engine Machine:
+Login as super user
+sudo -s
+Run the following command to install docker
+sudo apt-get install docker.io
+Docker is now ready!
+Test docker
+docker ps
+
+After Successfull installation, now we have to pull gcr image in compute engine 
+with below command
+
+docker pull gcr.io/carbon-dev-392917/test-project:1.0
+
+if you see authentication issue, then you should login with service account which has
+role to access it
+
+gcloud auth activate-service-account ACCOUNT --key-file=KEY-FILE //associate ur details
+gcloud auth activate-service-account service-account-test@carbon-dev-392917.iam.gserviceaccount.com --key-file=carbon-dev-392917-17c31c048943.json
+
+//create service account(key should be always selected as json) from gcp console and download keyfile
+ it ur local machine and push to the compute engine instance(by using google ssh in browser)
+
+//once you see authnetication issue, run the following command
+gcloud auth configure-docker -> this command will allow docker to interact with gcp
+
+Now image will be pulled successfully in compute engine instance
+
+5. Run Docker Image in GCP Compute Engine Instance
+
+docker run -p8080:8080 gcr.io/carbon-dev-392917/test-project:1.0
+
+Docker will run container successfully, you can see it via docker ps
+
+http://{COMPUTE_ENGINE_EXTERNAL_IP_INSTANCE}:8080/test-svc/app
