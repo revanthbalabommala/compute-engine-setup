@@ -1,0 +1,3 @@
+GIT Config Commands:
+
+git config --list | grep user.name. -> Command to get the existing usernam ein git
