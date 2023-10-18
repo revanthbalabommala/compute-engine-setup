@@ -1,3 +1,4 @@
 GIT Config Commands:
 
-git config --list | grep user.name. -> Command to get the existing usernam ein git
+git config --list | grep user.name. -> Command to get the existing username in git
+git config --global user.name "revanth balabo -> Command to set user name

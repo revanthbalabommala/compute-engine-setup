@@ -1,0 +1,24 @@
+To Push Image into GCR, Image should be build locally and tested
+
+Note: Always Login via service account and do the operations
+
+Then follow these commands:
+
+Note: Service Accounts may be cached sometimes, good to create new one for write operations
+
+gcloud auth configure-docker --project carbon-dev-392917
+
+Note: Service Account Permission should be set as "Storage Admin"
+
+gcloud auth activate-service-account test-sa@carbon-dev-392917.iam.gserviceaccount.com --key-file=/Users/revanthbalabommala/Downloads/carbon-dev-392917-dc405e780c63.json
+
+docker build -t gcr.io/carbon-dev-392917/test-https-service .
+
+docker push gcr.io/carbon-dev-392917/test-https-service:1.0
+
+
+Links to Refer:
+
+https://stackoverflow.com/questions/51873072/cant-push-image-to-google-container-registry-caller-does-not-have-permission
+https://cloud.google.com/artifact-registry/docs/docker
+https://cloud.google.com/artifact-registry/docs/docker/authentication#linux
