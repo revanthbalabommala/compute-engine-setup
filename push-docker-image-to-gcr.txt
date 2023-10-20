@@ -1,3 +1,6 @@
+
+Steps tp push Docker Image to GCR:
+
 To Push Image into GCR, Image should be build locally and tested
 
 Note: Always Login via service account and do the operations

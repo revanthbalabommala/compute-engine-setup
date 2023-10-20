@@ -1,0 +1,27 @@
+
+Compute Engine Creation with "static ip address":
+
+How to Reserve static ip address:
+
+static ip address can be assigned for any compute engine instance, usually whenever compute 
+engine restarts it will be assigned new ip address every time. 
+This can lead to issues to clients who are accessing, they need to update their ip address
+every time compute engine restarts.
+
+Having static ip address created and assigned to compute engine instance, will resolve the issue
+Once we assign static ip address, even though compute engine instance restarts ip address will not change,
+it will still use new static ip address created
+
+Note: At a time only one static ip address can be assigned to one compute engine instance
+
+To Create New Reserve Static IP Address ->
+
+Go to VPC Network -> IP Address -> Click on "RESERVE EXTERNAL IP ADDRESS" -> Create
+
+"RESERVE EXTERNAL IP ADDRESS" -> are of two types
+1. Regional -> when we select regional this will be or can be assigned to only 
+compute engine instance
+2. Global -> this is for load balancer (need to update this section when load balancer is covered)
+
+Questions: Can we only reserve only static ip address for external IP? can we have 
+static ip address for internal ip address?

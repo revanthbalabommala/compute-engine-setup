@@ -1,4 +1,6 @@
 
+Compute Engine Creation:
+
 1. Go To Compute Engine -> Create Instance with following options
 
 instance name, region, zone, machine configuration, machine type, available policies, enable display device (choose defaults)
