@@ -15,6 +15,8 @@ Note: Service Account Permission should be set as "Storage Admin"
 
 gcloud auth activate-service-account test-sa@carbon-dev-392917.iam.gserviceaccount.com --key-file=/Users/revanthbalabommala/Downloads/carbon-dev-392917-dc405e780c63.json
 
+gcloud auth configure-docker
+
 docker build -t gcr.io/carbon-dev-392917/test-https-service .
 
 docker push gcr.io/carbon-dev-392917/test-https-service:1.0
